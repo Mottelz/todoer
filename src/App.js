@@ -19,14 +19,19 @@ class App extends React.Component {
   }
 
   addToList(itemName) {
-      this.setState((state) => {
-          state.items.push({id: state.items.at(state.items.length-1).id + 1, name: itemName});
-          return state;
-      });
+      if(this.state.items.length > 0) {
+          let newState = this.state;
+          newState.items.push({id: this.state.items.at(this.state.items.length-1).id + 1, name: itemName});
+          this.setState(newState);
+      } else {
+          let newState = {items: [{id: 0, name: itemName}]};
+          this.setState(newState);
+      }
+
   }
 
   removeFromList(itemId) {
-      let newState = {items: this.state.items.filter(i => i.id != itemId)};
+      let newState = {items: this.state.items.filter(i => i.id !== itemId)};
       this.setState(newState);
   }
 
