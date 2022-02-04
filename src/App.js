@@ -8,12 +8,7 @@ import {ItemForm} from "./components/ItemForm";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {items: [
-            {id: 0, name: "Milk"},
-            {id: 1, name: "Eggs"},
-            {id: 2, name: "Ham"},
-            {id: 3, name: "Bread"},
-        ]};
+    this.state = {items: []};
     this.addToList = this.addToList.bind(this);
     this.removeFromList = this.removeFromList.bind(this);
   }
